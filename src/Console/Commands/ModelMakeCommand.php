@@ -2,9 +2,7 @@
 
 namespace TheFletcher\LaraMake\Console\Commands;
 
-use Illuminate\Console\GeneratorCommand;
 use Illuminate\Foundation\Console\ModelMakeCommand as IlluminateModelMakeCommand;
-use Illuminate\Support\Str;
 use Symfony\Component\Console\Input\InputOption;
 
 class ModelMakeCommand extends IlluminateModelMakeCommand
