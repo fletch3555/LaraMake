@@ -1,0 +1,25 @@
+{
+    "name": "thefletcher/laramake",
+	"description": "Extension of built-in Laravel 'make' Commands",
+	"keywords": ["laravel", "make", "commands"],
+    "license": "MIT",
+	"support": {
+        "issues": "https://github.com/fletch3555/laramake/issues",
+        "source": "https://github.com/fletch3555/laramake"
+    },
+    "authors": [
+        {
+            "name": "Eric Fletcher",
+            "email": "eric@thefletcher.net"
+        }
+    ],
+    "require": {
+		"laravel/framework": "^5.4"
+	},
+	"autoload": {
+        "psr-4": {
+            "TheFletcher\\LaraMake\\": "src/"
+        }
+    },
+	"minimum-stability": "dev"
+}
