@@ -24,45 +24,14 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
 {
 
     /**
-     * The commands to be registered.
-     *
-     * @var array
-     */
-    protected $commands = [
-    ];
-
-    /**
-     * The commands to be registered.
-     *
-     * @var array
-     */
-    protected $devCommands = [
-        'ConsoleMake' => 'command.console.make',
-        'ControllerMake' => 'command.controller.make',
-        'EventMake' => 'command.event.make',
-        'JobMake' => 'command.job.make',
-        'ListenerMake' => 'command.listener.make',
-        'MailMake' => 'command.mail.make',
-        'MiddlewareMake' => 'command.middleware.make',
-        'MigrateMake' => 'command.migrate.make',
-        'ModelMake' => 'command.model.make',
-        'NotificationMake' => 'command.notification.make',
-        'PolicyMake' => 'command.policy.make',
-        'ProviderMake' => 'command.provider.make',
-        'RequestMake' => 'command.request.make',
-        'SeederMake' => 'command.seeder.make',
-        'TestMake' => 'command.test.make',
-    ];
-
-    /**
      * Register the command.
      *
      * @return void
      */
     protected function registerConsoleMakeCommand()
     {
-        $this->app->extend('command.console.make', function ($app) {
-            return new ConsoleMakeCommand($app['files']);
+        $this->app->singleton('command.console.make', function () {
+            return new ConsoleMakeCommand($this->app['files']);
         });
     }
 
@@ -73,8 +42,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerControllerMakeCommand()
     {
-        $this->app->extend('command.controller.make', function ($app) {
-            return new ControllerMakeCommand($app['files']);
+        $this->app->singleton('command.controller.make', function () {
+            return new ControllerMakeCommand($this->app['files']);
         });
     }
 
@@ -85,8 +54,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerEventMakeCommand()
     {
-        $this->app->extend('command.event.make', function ($app) {
-            return new EventMakeCommand($app['files']);
+        $this->app->singleton('command.event.make', function () {
+            return new EventMakeCommand($this->app['files']);
         });
     }
 
@@ -97,8 +66,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerJobMakeCommand()
     {
-        $this->app->extend('command.job.make', function ($app) {
-            return new JobMakeCommand($app['files']);
+        $this->app->singleton('command.job.make', function () {
+            return new JobMakeCommand($this->app['files']);
         });
     }
 
@@ -109,8 +78,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerListenerMakeCommand()
     {
-        $this->app->extend('command.listener.make', function ($app) {
-            return new ListenerMakeCommand($app['files']);
+        $this->app->singleton('command.listener.make', function () {
+            return new ListenerMakeCommand($this->app['files']);
         });
     }
 
@@ -121,8 +90,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerMailMakeCommand()
     {
-        $this->app->extend('command.mail.make', function ($app) {
-            return new MailMakeCommand($app['files']);
+        $this->app->singleton('command.mail.make', function () {
+            return new MailMakeCommand($this->app['files']);
         });
     }
 
@@ -133,8 +102,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerMiddlewareMakeCommand()
     {
-        $this->app->extend('command.middleware.make', function ($app) {
-            return new MiddlewareMakeCommand($app['files']);
+        $this->app->singleton('command.middleware.make', function () {
+            return new MiddlewareMakeCommand($this->app['files']);
         });
     }
 
@@ -145,13 +114,13 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerMigrateMakeCommand()
     {
-        $this->app->extend('command.migrate.make', function ($app) {
+        $this->app->singleton('command.migrate.make', function () {
             // Once we have the migration creator registered, we will create the command
             // and inject the creator. The creator is responsible for the actual file
             // creation of the migrations, and may be extended by these developers.
-            $creator = $app['migration.creator'];
+            $creator = $this->app['migration.creator'];
 
-            $composer = $app['composer'];
+            $composer = $this->app['composer'];
 
             return new MigrateMakeCommand($creator, $composer);
         });
@@ -164,8 +133,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerModelMakeCommand()
     {
-        $this->app->extend('command.model.make', function ($app) {
-            return new ModelMakeCommand($app['files']);
+        $this->app->singleton('command.model.make', function () {
+            return new ModelMakeCommand($this->app['files']);
         });
     }
 
@@ -176,8 +145,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerNotificationMakeCommand()
     {
-        $this->app->extend('command.notification.make', function ($app) {
-            return new NotificationMakeCommand($app['files']);
+        $this->app->singleton('command.notification.make', function () {
+            return new NotificationMakeCommand($this->app['files']);
         });
     }
 
@@ -188,8 +157,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerPolicyMakeCommand()
     {
-        $this->app->extend('command.policy.make', function ($app) {
-            return new PolicyMakeCommand($app['files']);
+        $this->app->singleton('command.policy.make', function () {
+            return new PolicyMakeCommand($this->app['files']);
         });
     }
 
@@ -200,8 +169,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerProviderMakeCommand()
     {
-        $this->app->extend('command.provider.make', function ($app) {
-            return new ProviderMakeCommand($app['files']);
+        $this->app->singleton('command.provider.make', function () {
+            return new ProviderMakeCommand($this->app['files']);
         });
     }
 
@@ -212,8 +181,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerRequestMakeCommand()
     {
-        $this->app->extend('command.request.make', function ($app) {
-            return new RequestMakeCommand($app['files']);
+        $this->app->singleton('command.request.make', function () {
+            return new RequestMakeCommand($this->app['files']);
         });
     }
 
@@ -224,8 +193,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerSeederMakeCommand()
     {
-        $this->app->extend('command.seeder.make', function ($app) {
-            return new SeederMakeCommand($app['files'], $app['composer']);
+        $this->app->singleton('command.seeder.make', function () {
+            return new SeederMakeCommand($this->app['files'], $this->app['composer']);
         });
     }
 
@@ -236,8 +205,8 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      */
     protected function registerTestMakeCommand()
     {
-        $this->app->extend('command.test.make', function ($app) {
-            return new TestMakeCommand($app['files']);
+        $this->app->singleton('command.test.make', function () {
+            return new TestMakeCommand($this->app['files']);
         });
     }
 }
