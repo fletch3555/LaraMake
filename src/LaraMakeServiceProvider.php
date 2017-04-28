@@ -9,7 +9,14 @@ use TheFletcher\LaraMake\Console\Commands\ControllerMakeCommand;
 use TheFletcher\LaraMake\Console\Commands\EventMakeCommand;
 use TheFletcher\LaraMake\Console\Commands\JobMakeCommand;
 use TheFletcher\LaraMake\Console\Commands\ListenerMakeCommand;
+use TheFletcher\LaraMake\Console\Commands\MailMakeCommand;
+use TheFletcher\LaraMake\Console\Commands\MiddlewareMakeCommand;
+use TheFletcher\LaraMake\Console\Commands\MigrateMakeCommand;
 use TheFletcher\LaraMake\Console\Commands\ModelMakeCommand;
+use TheFletcher\LaraMake\Console\Commands\NotificationMakeCommand;
+use TheFletcher\LaraMake\Console\Commands\PolicyMakeCommand;
+use TheFletcher\LaraMake\Console\Commands\ProviderMakeCommand;
+use TheFletcher\LaraMake\Console\Commands\RequestMakeCommand;
 use TheFletcher\LaraMake\Console\Commands\SeederMakeCommand;
 use TheFletcher\LaraMake\Console\Commands\TestMakeCommand;
 
@@ -35,7 +42,14 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
         'EventMake' => 'command.event.make',
         'JobMake' => 'command.job.make',
         'ListenerMake' => 'command.listener.make',
+        'MailMake' => 'command.mail.make',
+        'MiddlewareMake' => 'command.middleware.make',
+        'MigrateMake' => 'command.migrate.make',
         'ModelMake' => 'command.model.make',
+        'NotificationMake' => 'command.notification.make',
+        'PolicyMake' => 'command.policy.make',
+        'ProviderMake' => 'command.provider.make',
+        'RequestMake' => 'command.request.make',
         'SeederMake' => 'command.seeder.make',
         'TestMake' => 'command.test.make',
     ];
@@ -152,6 +166,54 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
     {
         $this->app->extend('command.model.make', function ($app) {
             return new ModelMakeCommand($app['files']);
+        });
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    protected function registerNotificationMakeCommand()
+    {
+        $this->app->extend('command.notification.make', function ($app) {
+            return new NotificationMakeCommand($app['files']);
+        });
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    protected function registerPolicyMakeCommand()
+    {
+        $this->app->extend('command.policy.make', function ($app) {
+            return new PolicyMakeCommand($app['files']);
+        });
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    protected function registerProviderMakeCommand()
+    {
+        $this->app->extend('command.provider.make', function ($app) {
+            return new ProviderMakeCommand($app['files']);
+        });
+    }
+
+    /**
+     * Register the command.
+     *
+     * @return void
+     */
+    protected function registerRequestMakeCommand()
+    {
+        $this->app->extend('command.request.make', function ($app) {
+            return new RequestMakeCommand($app['files']);
         });
     }
 
