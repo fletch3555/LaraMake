@@ -191,18 +191,6 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      *
      * @return void
      */
-    protected function registerSeederMakeCommand()
-    {
-        $this->app->singleton('command.seeder.make', function () {
-            return new SeederMakeCommand($this->app['files'], $this->app['composer']);
-        });
-    }
-
-    /**
-     * Register the command.
-     *
-     * @return void
-     */
     protected function registerTestMakeCommand()
     {
         $this->app->singleton('command.test.make', function () {
