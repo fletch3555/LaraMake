@@ -155,18 +155,6 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      *
      * @return void
      */
-    protected function registerPolicyMakeCommand()
-    {
-        $this->app->singleton('command.policy.make', function () {
-            return new PolicyMakeCommand($this->app['files']);
-        });
-    }
-
-    /**
-     * Register the command.
-     *
-     * @return void
-     */
     protected function registerProviderMakeCommand()
     {
         $this->app->singleton('command.provider.make', function () {
