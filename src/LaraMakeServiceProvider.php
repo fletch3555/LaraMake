@@ -40,18 +40,6 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      *
      * @return void
      */
-    protected function registerJobMakeCommand()
-    {
-        $this->app->singleton('command.job.make', function () {
-            return new JobMakeCommand($this->app['files']);
-        });
-    }
-
-    /**
-     * Register the command.
-     *
-     * @return void
-     */
     protected function registerMailMakeCommand()
     {
         $this->app->singleton('command.mail.make', function () {
