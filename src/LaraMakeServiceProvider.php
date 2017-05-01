@@ -100,18 +100,6 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      *
      * @return void
      */
-    protected function registerMiddlewareMakeCommand()
-    {
-        $this->app->singleton('command.middleware.make', function () {
-            return new MiddlewareMakeCommand($this->app['files']);
-        });
-    }
-
-    /**
-     * Register the command.
-     *
-     * @return void
-     */
     protected function registerMigrateMakeCommand()
     {
         $this->app->singleton('command.migrate.make', function () {
