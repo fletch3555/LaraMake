@@ -7,6 +7,13 @@ use Illuminate\Support\ServiceProvider;
 class DummyClass extends ServiceProvider
 {
     /**
+     * Indicates if loading of the provider is deferred.
+     *
+     * @var bool
+     */
+    protected $defer = true;
+
+    /**
      * Bootstrap the application services.
      *
      * @return void
@@ -24,5 +31,15 @@ class DummyClass extends ServiceProvider
     public function register()
     {
         //
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array
+     */
+    public function provides()
+    {
+        return [];
     }
 }

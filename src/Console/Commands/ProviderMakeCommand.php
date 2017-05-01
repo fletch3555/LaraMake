@@ -22,68 +22,11 @@ class ProviderMakeCommand extends IlluminateProviderMakeCommand
      */
     protected function getStub()
     {
+        if ($this->option('defer')) {
+            return __DIR__.'/stubs/provider.deferred.stub';
+        }
+
         return __DIR__.'/stubs/provider.stub';
-    }
-
-    /**
-     * Build the class with the given name.
-     *
-     * @param  string  $name
-     * @return string
-     */
-    protected function buildClass($name)
-    {
-        $stub = $this->files->get($this->getStub());
-
-        return $this->replaceNamespace($stub, $name)
-                    ->replaceDefer($stub)
-                    ->replaceProvides($stub)
-                    ->replaceClass($stub, $name);
-    }
-
-    /**
-     * Add the $defer value for the given stub.
-     *
-     * @param  string  $stub
-     * @return $this
-     */
-    protected function replaceDefer(&$stub)
-    {
-        if ($table = $this->option('defer')) {
-            $deferCode = "/**\n" .
-                     "     * Indicates if loading of the provider is deferred.\n" .
-                     "     *\n" .
-                     "     * @var bool\n" .
-                     "     */\n" .
-                     "    protected \$defer = true;";
-            $stub = str_replace('DummyDefer', $deferCode, $stub);
-        }
-
-        return $this;
-    }
-
-    /**
-     * Add the provides() method for the given stub.
-     *
-     * @param  string  $stub
-     * @return $this
-     */
-    protected function replaceProvides(&$stub)
-    {
-        if ($table = $this->option('defer')) {
-            $providesCode = "/**\n" .
-                        "     * Get the services provided by the provider.\n" .
-                        "     *\n" .
-                        "     * @return array\n" .
-                        "     */\n" .
-                        "    public function provides()\n" .
-                        "    {\n" .
-                        "        return [];\n" .
-                        "    }\n";
-            $stub = str_replace('DummyProvides', $providesCode, $stub);
-        }
-
-        return $this;
     }
 
     /**
