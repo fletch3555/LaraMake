@@ -120,6 +120,21 @@ class ModelMakeCommand extends IlluminateModelMakeCommand
     }
 
     /**
+     * Get the default namespace for the class.
+     *
+     * @param  string  $rootNamespace
+     * @return string
+     */
+    protected function getDefaultNamespace($rootNamespace)
+    {
+        if ($table = $this->option('namespace')) {
+            $rootNamespace = str_replace('/', '\\', $this->option('namespace'));
+        }
+
+        return $rootNamespace;
+    }
+
+    /**
      * Get the console command options.
      *
      * @return array
@@ -128,6 +143,7 @@ class ModelMakeCommand extends IlluminateModelMakeCommand
     {
         return array_merge(parent::getOptions(),
             [
+                ['namespace', null, InputOption::VALUE_REQUIRED, 'Set the model namespace'],
                 ['table', 't', InputOption::VALUE_REQUIRED, 'Set the table name for the model.'],
                 ['no-timestamps', null, InputOption::VALUE_NONE, 'Set model to not use timestamps.'],
                 ['primarykey', 'k', InputOption::VALUE_REQUIRED, 'Set the primary key field for the model.'],
