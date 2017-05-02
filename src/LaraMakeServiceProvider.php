@@ -71,18 +71,6 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      *
      * @return void
      */
-    protected function registerNotificationMakeCommand()
-    {
-        $this->app->singleton('command.notification.make', function () {
-            return new NotificationMakeCommand($this->app['files']);
-        });
-    }
-
-    /**
-     * Register the command.
-     *
-     * @return void
-     */
     protected function registerProviderMakeCommand()
     {
         $this->app->singleton('command.provider.make', function () {
