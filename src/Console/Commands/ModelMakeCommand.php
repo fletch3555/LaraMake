@@ -52,9 +52,13 @@ class ModelMakeCommand extends IlluminateModelMakeCommand
      */
     protected function replaceTable(&$stub)
     {
+        $replacement = '';
+
         if ($table = $this->option('table')) {
-            $stub = str_replace('DummyTable', "protected \$table = '" . $table . "';", $stub);
+            $replacement = "    protected \$table = '" . $table . "';";
         }
+
+        $stub = str_replace("\n    DummyTable", $replacement, $stub);
 
         return $this;
     }
@@ -67,9 +71,13 @@ class ModelMakeCommand extends IlluminateModelMakeCommand
      */
     protected function replaceTimestamps(&$stub)
     {
+        $replacement = '';
+
         if ($this->option('no-timestamps')) {
-            $stub = str_replace('DummyTimestamps', "public \$timestamps = false;", $stub);
+            $replacement = "    public \$timestamps = false;";
         }
+
+        $stub = str_replace("\n    DummyTimestamps", $replacement, $stub);
 
         return $this;
     }
@@ -82,9 +90,13 @@ class ModelMakeCommand extends IlluminateModelMakeCommand
      */
     protected function replacePrimaryKey(&$stub)
     {
+        $replacement = '';
+
         if ($pk = $this->option('primarykey')) {
-            $stub = str_replace('DummyPrimaryKey', "protected \$primaryKey  = '" . $pk . "';", $stub);
+            $replacement = "    protected \$primaryKey  = '" . $pk . "';";
         }
+
+        $stub = str_replace("\n    DummyPrimaryKey", $replacement, $stub);
 
         return $this;
     }
@@ -97,9 +109,13 @@ class ModelMakeCommand extends IlluminateModelMakeCommand
      */
     protected function replaceIncrementing(&$stub)
     {
+        $replacement = '';
+
         if ($this->option('no-incrementing')) {
-            $stub = str_replace('DummyIncrementing', "public \$incrementing = false;", $stub);
+            $replacement = "    public \$incrementing = false;";
         }
+
+        $stub = str_replace("\n    DummyIncrementing", $replacement, $stub);
 
         return $this;
     }
@@ -112,9 +128,13 @@ class ModelMakeCommand extends IlluminateModelMakeCommand
      */
     protected function replaceConnection(&$stub)
     {
+        $replacement = '';
+
         if ($conn = $this->option('connection')) {
-            $stub = str_replace('DummyConnection', "protected \$connection = '". $conn ."';", $stub);
+            $replacement = "    protected \$connection = '". $conn ."';";
         }
+
+        $stub = str_replace("\n    DummyConnection", $replacement, $stub);
 
         return $this;
     }

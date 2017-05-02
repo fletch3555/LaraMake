@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DummyClass extends Model
 {
+
     DummyTable
 
     DummyTimestamps
