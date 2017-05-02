@@ -40,25 +40,6 @@ class LaraMakeServiceProvider extends ArtisanServiceProvider
      *
      * @return void
      */
-    protected function registerMigrateMakeCommand()
-    {
-        $this->app->singleton('command.migrate.make', function () {
-            // Once we have the migration creator registered, we will create the command
-            // and inject the creator. The creator is responsible for the actual file
-            // creation of the migrations, and may be extended by these developers.
-            $creator = $this->app['migration.creator'];
-
-            $composer = $this->app['composer'];
-
-            return new MigrateMakeCommand($creator, $composer);
-        });
-    }
-
-    /**
-     * Register the command.
-     *
-     * @return void
-     */
     protected function registerModelMakeCommand()
     {
         $this->app->singleton('command.model.make', function () {
