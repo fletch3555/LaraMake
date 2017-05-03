@@ -20,7 +20,7 @@ Add the Service Provider to `config/app.php`:
 ```php
 'providers' => [
     // Laravel Framework Service Providers...
-    //...
+    // ...
     
     // Package Service Providers
     TheFletcher\LaraMake\LaraMakeServiceProvider::class,
@@ -50,14 +50,14 @@ This command creates a Model class.
 
 New options include:
 
-Long                      | Short        | Example                  | Purpose
-------------------------- | ------------ | ------------------------ | -------
-`--namespace={namespace}` |              | `--namespace=App\Models` | Set the namespace to put the model in.
-`--table={table}`         | `-t={table}` | `--table=products`       | Set the table name for the model to use.
-`--no-timestamps`         |              | `--no-timestamps`        | Set `$timestamps=false` to tell the model not to expect `created_at` or `updated_at` fields.
-`--primarykey={key}`      | `-k={key}`   | `--primarykey=id`        | Set a custom primary key for the model.
-`--no-incrementing`       |              | `--no-incrementing`      | Set `$incrementing = false` to tell the model that it's primary key is not auto-incrementing.
-`--connection={conn}`     |              | `--connection=mongodb`   | Set the `$connection` the model should use.
+Long                      | Short        | Purpose                                                                                       | Example
+------------------------- | ------------ | --------------------------------------------------------------------------------------------- | -------
+`--namespace={namespace}` |              | Set the namespace to put the model in.                                                        | `--namespace=App\Models`
+`--table={table}`         | `-t={table}` | Set the table name for the model to use.                                                      | `--table=products`
+`--no-timestamps`         |              | Set `$timestamps=false` to tell the model not to expect `created_at` or `updated_at` fields.  | `--no-timestamps`
+`--primarykey={key}`      | `-k={key}`   | Set a custom primary key for the model.                                                       | `--primarykey=id`
+`--no-incrementing`       |              | Set `$incrementing = false` to tell the model that it's primary key is not auto-incrementing. | `--no-incrementing`
+`--connection={conn}`     |              | Set the `$connection` the model should use.                                                   | `--connection=mongodb`
 
 ### make:provider
 
@@ -65,9 +65,9 @@ This command creates a ServiceProvider class.
 
 New options include:
 
-Long      | Short | Example   | Purpose
---------- | ----- | --------- | -------
-`--defer` | `-d`  | `--defer` | Set `$defer` to defer loading of the Provider.
+Long      | Short | Purpose                                        | Example
+--------- | ----- | ---------------------------------------------- | -------
+`--defer` | `-d`  | Set `$defer` to defer loading of the Provider. | `--defer`
 
 
 ## Contributing
