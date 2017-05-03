@@ -14,12 +14,12 @@
         }
     ],
     "require": {
-		"laravel/framework": "^5.4"
+		"laravel/framework": "^5.1"
 	},
 	"autoload": {
         "psr-4": {
             "TheFletcher\\LaraMake\\": "src/"
         }
     },
-	"minimum-stability": "dev"
+	"minimum-stability": "stable"
 }
