@@ -7,10 +7,6 @@ LaraMake is a package that overrides the built-in artisan **_make_** commands to
 Laravel doesn't want to _bloat_ their commands with too many flags, so we'll do it for them!
 
 
-## Licensing
-
-Much like the Laravel Framework, this package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
-
 ## Installation
 
 Require the package with Composer:
@@ -43,6 +39,7 @@ php artisan make:model --help
 
 You should see new options available, including `--table`
 
+
 ## Documentation
 
 Below are the commands that have been overridden and what options were added.
@@ -71,3 +68,15 @@ New options include:
 Long      | Short | Example   | Purpose
 --------- | ----- | --------- | -------
 `--defer` | `-d`  | `--defer` | Set `$defer` to defer loading of the Provider.
+
+
+## Contributing
+
+If there are any options you wish Laravel had and would like added here, please [create an issue through Github](https://github.com/fletch3555/LaraMake/issues/new).
+
+If you wish to work on adding new options, I welcome Pull Requests, but only after discussion in an issue first.
+
+
+## Licensing
+
+Much like the Laravel Framework, this package is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
